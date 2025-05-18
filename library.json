@@ -1,0 +1,31 @@
+{
+  "name": "ZSArduinoGeometry",
+  "description": "Common functionality to represent geometric figures. ",
+  "version": "1.0.0",
+  "keywords": [
+    "geometry",
+    "arduino"
+  ],
+  "authors": [
+    {
+      "name": "Nicky Santamaria",
+      "email": "ndsans@gmail.com"
+    }
+  ],
+  "license": "GPL",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zuzsso/ZSArduinoSerialToolkit.git"
+  },
+  "dependencies": {
+    "external-repo": "https://github.com/zuzsso/ZSArduinoSerialToolkit@2.2.0"
+  },
+  "frameworks": [
+    "arduino"
+  ],
+  
+  "platforms": [
+    "arduino",
+    "espressif32"
+  ]
+}
