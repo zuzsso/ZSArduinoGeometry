@@ -8,6 +8,8 @@ namespace ZS
 {
     namespace ImaGeometry
     {
+        class ConvexArea;
+
         class ImageCoordinate
         {
         private:
@@ -36,19 +38,19 @@ namespace ZS
         class Circle
         {
         private:
-            ZS::ImaGeometry::ImageCoordinate center;
+            ImageCoordinate center;
             int radiusPx;
 
         public:
-            Circle(ZS::ImaGeometry::ImageCoordinate center, int radiusPx);
-            ZS::ImaGeometry::ImageCoordinate getCenter();
+            Circle(ImageCoordinate center, int radiusPx);
+            ImageCoordinate getCenter();
             int getRadiusPx();
         };
 
         class Rectangle
         {
         private:
-            ZS::ImaGeometry::ConvexArea *myRect;
+            ConvexArea *myRect;
             ImageCoordinate c;
             int widthPx;
             int heightPx;
@@ -74,9 +76,8 @@ namespace ZS
 
             bool containsPoint(const ImageCoordinate &p) const;
 
-            ZS::ImaGeometry::Rectangle getBoundingBox();
+            Rectangle getBoundingBox();
         };
-
     }
 }
 
