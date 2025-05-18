@@ -39,6 +39,16 @@ namespace ZS
             this->end.scale(factor);
         }
 
+        ImageCoordinate ImageLine::getStart()
+        {
+            return this->start;
+        }
+
+        ImageCoordinate ImageLine::getEnd()
+        {
+            return this->end;
+        }
+
         Circle::Circle(ImaGeometry::ImageCoordinate center, int radiusPx) : center(center), radiusPx(radiusPx)
         {
         }

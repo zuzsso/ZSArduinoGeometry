@@ -31,6 +31,8 @@ namespace ZS
 
         public:
             ImageLine(ImageCoordinate start, ImageCoordinate end);
+            ImageCoordinate getStart();
+            ImageCoordinate getEnd();
 
             void scale(double factor);
         };
@@ -66,16 +68,12 @@ namespace ZS
         {
         private:
             std::vector<ImageCoordinate> vertices;
-
             void checkConvexity();
 
         public:
             ConvexArea(std::vector<ImageCoordinate> &vertices);
-
             void scale(float scaleFactor);
-
             bool containsPoint(const ImageCoordinate &p) const;
-
             Rectangle getBoundingBox();
         };
     }
