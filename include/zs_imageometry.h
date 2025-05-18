@@ -15,7 +15,7 @@ namespace ZS
             int y;
 
         public:
-            ImageCoordinate(int x, int y) : x(x), y(y) {};
+            ImageCoordinate(int x, int y);
             void scale(float factor);
             int getX() const;
             int getY() const;
@@ -28,7 +28,7 @@ namespace ZS
             ImageCoordinate end;
 
         public:
-            ImageLine(ImageCoordinate start, ImageCoordinate end) : start(start), end(end) {};
+            ImageLine(ImageCoordinate start, ImageCoordinate end);
 
             void scale(double factor);
         };
@@ -40,26 +40,9 @@ namespace ZS
             int radiusPx;
 
         public:
-            Circle(ZS::ImaGeometry::ImageCoordinate center, int radiusPx) : center(center), radiusPx(radiusPx) {};
+            Circle(ZS::ImaGeometry::ImageCoordinate center, int radiusPx);
             ZS::ImaGeometry::ImageCoordinate getCenter();
             int getRadiusPx();
-        };
-
-        class ConvexArea
-        {
-        private:
-            std::vector<ImageCoordinate> vertices;
-
-            void checkConvexity();
-
-        public:
-            ConvexArea(std::vector<ImageCoordinate> &vertices) : vertices(vertices) {};
-
-            void scale(float scaleFactor);
-
-            bool containsPoint(const ImageCoordinate &p) const;
-
-            Rectangle getBoundingBox();
         };
 
         class Rectangle
@@ -71,11 +54,29 @@ namespace ZS
             int heightPx;
 
         public:
-            Rectangle(ImageCoordinate c, int widthPx, int heightPx) : c(c), widthPx(widthPx), heightPx(heightPx) {};
+            Rectangle(ImageCoordinate c, int widthPx, int heightPx);
             ~Rectangle();
             ImageCoordinate getMinImageCoordinate();
             ImageCoordinate getMaxImageCoordinate();
         };
+
+        class ConvexArea
+        {
+        private:
+            std::vector<ImageCoordinate> vertices;
+
+            void checkConvexity();
+
+        public:
+            ConvexArea(std::vector<ImageCoordinate> &vertices);
+
+            void scale(float scaleFactor);
+
+            bool containsPoint(const ImageCoordinate &p) const;
+
+            ZS::ImaGeometry::Rectangle getBoundingBox();
+        };
+
     }
 }
 

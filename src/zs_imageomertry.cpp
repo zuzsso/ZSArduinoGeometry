@@ -80,6 +80,44 @@ namespace ZS
             }
         };
 
+        class Rectangle
+        {
+        private:
+            ZS::ImaGeometry::ConvexArea *myRect;
+            ImageCoordinate c;
+            int widthPx;
+            int heightPx;
+
+        public:
+            Rectangle(ImageCoordinate c, int widthPx, int heightPx) : c(c), widthPx(widthPx), heightPx(heightPx)
+            {
+                int x = c.getX();
+                int y = c.getY();
+                std::vector<ImageCoordinate> recint = {
+                    ImageCoordinate(x, y),
+                    ImageCoordinate(x + widthPx, y),
+                    ImageCoordinate(x + widthPx, y + heightPx),
+                    ImageCoordinate(x, y + heightPx)};
+
+                myRect = new ZS::ImaGeometry::ConvexArea(recint);
+            }
+
+            ~Rectangle()
+            {
+                delete myRect;
+            }
+
+            ImageCoordinate getMinImageCoordinate()
+            {
+                return c;
+            }
+
+            ImageCoordinate getMaxImageCoordinate()
+            {
+                return ImageCoordinate(c.getX() + widthPx, c.getY() + heightPx);
+            }
+        };
+
         class ConvexArea
         {
         private:
@@ -203,44 +241,6 @@ namespace ZS
                 }
 
                 return Rectangle(ImageCoordinate(minX, minY), maxX - minX + 1, maxY - minY + 1);
-            }
-        };
-
-        class Rectangle
-        {
-        private:
-            ZS::ImaGeometry::ConvexArea *myRect;
-            ImageCoordinate c;
-            int widthPx;
-            int heightPx;
-
-        public:
-            Rectangle(ImageCoordinate c, int widthPx, int heightPx) : c(c), widthPx(widthPx), heightPx(heightPx)
-            {
-                int x = c.getX();
-                int y = c.getY();
-                std::vector<ImageCoordinate> recint = {
-                    ImageCoordinate(x, y),
-                    ImageCoordinate(x + widthPx, y),
-                    ImageCoordinate(x + widthPx, y + heightPx),
-                    ImageCoordinate(x, y + heightPx)};
-
-                myRect = new ZS::ImaGeometry::ConvexArea(recint);
-            }
-
-            ~Rectangle()
-            {
-                delete myRect;
-            }
-
-            ImageCoordinate getMinImageCoordinate()
-            {
-                return c;
-            }
-
-            ImageCoordinate getMaxImageCoordinate()
-            {
-                return ImageCoordinate(c.getX() + widthPx, c.getY() + heightPx);
             }
         };
     }
