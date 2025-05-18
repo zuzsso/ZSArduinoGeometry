@@ -77,6 +77,7 @@ namespace ZS
             void scale(float scaleFactor);
             bool containsPoint(const ImageCoordinate &p) const;
             Rectangle getBoundingBox();
+            std::vector<ImageCoordinate> getVertices();
         };
     }
 }

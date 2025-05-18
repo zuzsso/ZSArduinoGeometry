@@ -87,18 +87,19 @@ namespace ZS
             ImageCoordinate p3 = ImageCoordinate(originX, originY + heightPx);
 
             std::vector<ImageLine> result = {};
-            
+
             result.push_back(ImageLine(p0, p1));
             result.push_back(ImageLine(p1, p2));
             result.push_back(ImageLine(p2, p3));
             result.push_back(ImageLine(p3, p0));
 
-            return result;            
+            return result;
         }
 
-        ImageCoordinate Rectangle::getOrigin(){
+        ImageCoordinate Rectangle::getOrigin()
+        {
             return p0;
-        } 
+        }
 
         Rectangle::~Rectangle()
         {
@@ -232,6 +233,11 @@ namespace ZS
             }
 
             return Rectangle(ImageCoordinate(minX, minY), maxX - minX + 1, maxY - minY + 1);
+        }
+
+        std::vector<ImageCoordinate> ConvexArea::getVertices()
+        {
+            return vertices;
         }
     }
 }
