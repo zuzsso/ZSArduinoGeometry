@@ -1,7 +1,7 @@
 {
   "name": "ZSArduinoImaGeometry",
   "description": "Common functionality to represent geometric figures in a raster buffer. Coordinates are actual pixels in the image",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "keywords": [
     "geometry",
     "arduino"
@@ -15,7 +15,7 @@
   "license": "GPL",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zuzsso/ZSArduinoSerialToolkit.git"
+    "url": "https://github.com/zuzsso/ZSArduinoImaGeometry.git"
   },
   "dependencies": {
     "external-repo": "https://github.com/zuzsso/ZSArduinoSerialToolkit@2.2.0"
