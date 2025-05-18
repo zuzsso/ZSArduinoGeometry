@@ -1,7 +1,6 @@
 #ifndef __ZS_GEOMETRY__
 #define __ZS_GEOMETRY__
 
-#include <zs_geometry.h>
 #include <zs_serial_port_utils.h>
 #include <vector>
 
