@@ -63,7 +63,7 @@ namespace ZS
             return radiusPx;
         }
 
-        Rectangle::Rectangle(ImageCoordinate c, int widthPx, int heightPx) : c(c), widthPx(widthPx), heightPx(heightPx)
+        Rectangle::Rectangle(ImageCoordinate c, int widthPx, int heightPx) : p0(c), widthPx(widthPx), heightPx(heightPx)
         {
             int x = c.getX();
             int y = c.getY();
@@ -76,6 +76,30 @@ namespace ZS
             myRect = new ZS::ImaGeometry::ConvexArea(recint);
         }
 
+        std::vector<ImageLine> Rectangle::getEdges()
+        {
+
+            int originX = p0.getX();
+            int originY = p0.getY();
+
+            ImageCoordinate p1 = ImageCoordinate(originX + widthPx, originY);
+            ImageCoordinate p2 = ImageCoordinate(originX + widthPx, originY + heightPx);
+            ImageCoordinate p3 = ImageCoordinate(originX, originY + heightPx);
+
+            std::vector<ImageLine> result = {};
+            
+            result.push_back(ImageLine(p0, p1));
+            result.push_back(ImageLine(p1, p2));
+            result.push_back(ImageLine(p2, p3));
+            result.push_back(ImageLine(p3, p0));
+
+            return result;            
+        }
+
+        ImageCoordinate Rectangle::getOrigin(){
+            return p0;
+        } 
+
         Rectangle::~Rectangle()
         {
             delete myRect;
@@ -83,12 +107,12 @@ namespace ZS
 
         ImageCoordinate Rectangle::getMinImageCoordinate()
         {
-            return c;
+            return p0;
         }
 
         ImageCoordinate Rectangle::getMaxImageCoordinate()
         {
-            return ImageCoordinate(c.getX() + widthPx, c.getY() + heightPx);
+            return ImageCoordinate(p0.getX() + widthPx, p0.getY() + heightPx);
         }
 
         void ConvexArea::checkConvexity()

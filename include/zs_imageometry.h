@@ -53,7 +53,7 @@ namespace ZS
         {
         private:
             ConvexArea *myRect;
-            ImageCoordinate c;
+            ImageCoordinate p0;
             int widthPx;
             int heightPx;
 
@@ -62,6 +62,8 @@ namespace ZS
             ~Rectangle();
             ImageCoordinate getMinImageCoordinate();
             ImageCoordinate getMaxImageCoordinate();
+            std::vector<ImageLine> getEdges();
+            ImageCoordinate getOrigin();
         };
 
         class ConvexArea
