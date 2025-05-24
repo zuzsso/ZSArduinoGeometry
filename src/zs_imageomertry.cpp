@@ -178,6 +178,11 @@ namespace ZS
             }
         }
 
+        void Rectangle::scale(float scaleFactor)
+        {
+            myRect->scale(scaleFactor);
+        }
+
         bool ConvexArea::containsPoint(const ImageCoordinate &p) const
         {
             int n = vertices.size();

@@ -64,6 +64,7 @@ namespace ZS
             ImageCoordinate getMaxImageCoordinate();
             std::vector<ImageLine> getEdges();
             ImageCoordinate getOrigin();
+            void scale(float scaleFactor);
         };
 
         class ConvexArea
