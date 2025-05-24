@@ -73,7 +73,7 @@ namespace ZS
             void checkConvexity();
 
         public:
-            ConvexArea(std::vector<ImageCoordinate> &vertices);
+            ConvexArea(const std::vector<ImageCoordinate> &vertices);
             void scale(float scaleFactor);
             bool containsPoint(const ImageCoordinate &p) const;
             Rectangle getBoundingBox();

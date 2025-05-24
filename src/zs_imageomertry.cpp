@@ -157,7 +157,7 @@ namespace ZS
             }
         }
 
-        ConvexArea::ConvexArea(std::vector<ImageCoordinate> &vertices) : vertices(vertices)
+        ConvexArea::ConvexArea(const std::vector<ImageCoordinate> &vertices) : vertices(vertices)
         {
             if (vertices.size() < 3)
             {
