@@ -144,6 +144,16 @@ namespace ZS
             checkConvexity();
         }
 
+        ImageCoordinate Rectangle::getMinImageCoordinate()
+        {
+            return recint->getMinImageCoordinate();
+        }
+        
+        ImageCoordinate Rectangle::getMaxImageCoordinate()
+        {
+            return recint->getMaxImageCoordinate();
+        }
+
         void ConvexArea::scale(float scaleFactor)
         {
             int n = vertices.size();
@@ -158,12 +168,10 @@ namespace ZS
             recint->scale(scaleFactor);
         }
 
-        ImageCoordinate Rectangle::getMinImageCoordinate()
+        ImageCoordinate ConvexArea::getMinImageCoordinate()
         {
             int minX = INT_MAX;
             int minY = INT_MAX;
-
-            std::vector<ImageCoordinate> vertices = recint->getVertices();
 
             int n = vertices.size();
 
@@ -185,12 +193,10 @@ namespace ZS
             return ImageCoordinate(minX, minY);
         }
 
-        ImageCoordinate Rectangle::getMaxImageCoordinate()
+        ImageCoordinate ConvexArea::getMaxImageCoordinate()
         {
             int maxX = 0;
             int maxY = 0;
-
-            std::vector<ImageCoordinate> vertices = recint->getVertices();
 
             int n = vertices.size();
 

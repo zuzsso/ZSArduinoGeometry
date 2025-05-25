@@ -78,6 +78,8 @@ namespace ZS
             Rectangle getBoundingBox();
             std::vector<ImageCoordinate> getVertices();
             std::vector<ImageLine> getEdges(); 
+            ImageCoordinate getMinImageCoordinate();
+            ImageCoordinate getMaxImageCoordinate();
         };
     }
 }
