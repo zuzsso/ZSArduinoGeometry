@@ -77,7 +77,7 @@ namespace ZS
         }
 
         std::vector<ImageLine> Rectangle::getEdges()
-        {            
+        {
             return recint->getEdges();
         }
 
@@ -90,7 +90,7 @@ namespace ZS
         {
             delete recint;
         }
-        
+
         void ConvexArea::checkConvexity()
         {
             int n = vertices.size();
@@ -156,6 +156,60 @@ namespace ZS
         void Rectangle::scale(float scaleFactor)
         {
             recint->scale(scaleFactor);
+        }
+
+        ImageCoordinate Rectangle::getMinImageCoordinate()
+        {
+            int minX = INT_MAX;
+            int minY = INT_MAX;
+
+            std::vector<ImageCoordinate> vertices = recint->getVertices();
+
+            int n = vertices.size();
+
+            for (int i = 0; i < n; i++)
+            {
+                const ImageCoordinate &a = vertices[i];
+
+                if (minX > a.getX())
+                {
+                    minX = a.getX();
+                }
+
+                if (minY > a.getY())
+                {
+                    minY = a.getY();
+                }
+            }
+
+            return ImageCoordinate(minX, minY);
+        }
+
+        ImageCoordinate Rectangle::getMaxImageCoordinate()
+        {
+            int maxX = 0;
+            int maxY = 0;
+
+            std::vector<ImageCoordinate> vertices = recint->getVertices();
+
+            int n = vertices.size();
+
+            for (int i = 0; i < n; i++)
+            {
+                const ImageCoordinate &a = vertices[i];
+
+                if (maxX < a.getX())
+                {
+                    maxX = a.getX();
+                }
+
+                if (maxY < a.getY())
+                {
+                    maxY = a.getY();
+                }
+            }
+
+            return ImageCoordinate(maxX, maxY);
         }
 
         bool ConvexArea::containsPoint(const ImageCoordinate &p) const

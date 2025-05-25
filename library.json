@@ -1,7 +1,7 @@
 {
   "name": "ZSArduinoImaGeometry",
   "description": "Common functionality to represent geometric figures in a raster buffer. Coordinates are actual pixels in the image",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "keywords": [
     "geometry",
     "arduino"
