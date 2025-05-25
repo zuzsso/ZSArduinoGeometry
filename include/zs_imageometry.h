@@ -52,16 +52,12 @@ namespace ZS
         class Rectangle
         {
         private:
-            ConvexArea *myRect;
-            ImageCoordinate p0;
-            int widthPx;
-            int heightPx;
+            ConvexArea *recint;
+            ImageCoordinate p0;            
 
         public:
             Rectangle(ImageCoordinate c, int widthPx, int heightPx);
-            ~Rectangle();
-            ImageCoordinate getMinImageCoordinate();
-            ImageCoordinate getMaxImageCoordinate();
+            ~Rectangle();            
             std::vector<ImageLine> getEdges();
             ImageCoordinate getOrigin();
             void scale(float scaleFactor);
@@ -79,6 +75,7 @@ namespace ZS
             bool containsPoint(const ImageCoordinate &p) const;
             Rectangle getBoundingBox();
             std::vector<ImageCoordinate> getVertices();
+            std::vector<ImageLine> getEdges(); 
         };
     }
 }
